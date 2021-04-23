@@ -9,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace SocialGamePlatform.Data
 {
-    class Post
+    public class Post
     {
         [Key]
         public int PostId { get; set; }
         [Required]
-        public Guid PoserID { get; set; }
-        [ForeignKey(Account (UserName)]
+        public Guid PosterID { get; set; }
+
+        [ForeignKey(nameof(Account))]
+        public int AccountId { get; set; }
+        public virtual Account Account { get; set; }
+        [Required]
+
         public string PosterUserName { get; set; }
         [Required]
         [MinLength(3),MaxLength(240)]

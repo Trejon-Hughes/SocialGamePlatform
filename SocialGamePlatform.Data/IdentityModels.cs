@@ -32,7 +32,7 @@ namespace SocialGamePlatform.Data
         {
             return new ApplicationDbContext();
         }
-
+        public DbSet<Post> Posts { get; set; }
         //public DbSet<Account> Accounts { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
