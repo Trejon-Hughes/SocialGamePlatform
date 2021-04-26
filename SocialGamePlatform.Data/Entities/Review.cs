@@ -16,11 +16,11 @@ namespace SocialGamePlatform.Data
         [Required]
         public Guid ReviewerId { get; set; }
 
-        [ForeignKey(nameof(AccountId))]
+        [ForeignKey(nameof(Account))]
         public int AccountId { get; set; }
         public virtual Account Account { get; set; }
 
-        [ForeignKey(nameof(GameId))]
+        [ForeignKey(nameof(Game))]
         public int GameId { get; set; }
         public virtual Game Game { get; set; }
 

@@ -54,12 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="PostCreate.cs" />
+=======
+    <Compile Include="AccountModels\AccountDetail.cs" />
+>>>>>>> a499665a8ade2e57bba66437d7f68f8777b84b58
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SocialGamePlatform.Data\SocialGamePlatform.Data.csproj">
+      <Project>{977796E0-1953-48D2-BCB5-8FD6ADE5C9D4}</Project>
+      <Name>SocialGamePlatform.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

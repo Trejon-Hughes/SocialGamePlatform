@@ -54,7 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="PostServices.cs" />
+=======
+    <Compile Include="AccountService.cs" />
+>>>>>>> a499665a8ade2e57bba66437d7f68f8777b84b58
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,7 +71,11 @@
       <Name>SocialGamePlatform.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\SocialGamePlatform.Models\SocialGamePlatform.Models.csproj">
+<<<<<<< HEAD
       <Project>{61e6a257-2afa-4c4b-ab80-25912b824860}</Project>
+=======
+      <Project>{61E6A257-2AFA-4C4B-AB80-25912B824860}</Project>
+>>>>>>> a499665a8ade2e57bba66437d7f68f8777b84b58
       <Name>SocialGamePlatform.Models</Name>
     </ProjectReference>
   </ItemGroup>
