@@ -54,11 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="PostCreate.cs" />
-=======
     <Compile Include="AccountModels\AccountDetail.cs" />
->>>>>>> a499665a8ade2e57bba66437d7f68f8777b84b58
+    <Compile Include="GameModels\GameCreate.cs" />
+    <Compile Include="GameModels\GameDetail.cs" />
+    <Compile Include="GameModels\GameListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
