@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountModels\AccountDetail.cs" />
+    <Compile Include="GameModels\GameCreate.cs" />
+    <Compile Include="GameModels\GameDetail.cs" />
+    <Compile Include="GameModels\GameListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

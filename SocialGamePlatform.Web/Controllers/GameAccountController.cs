@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace SocialGamePlatform.Web.Controllers
 {
-    [Authorize]
+
     public class GameAccountController : ApiController
     {
         private AccountService CreateAccountService()
@@ -27,6 +27,7 @@ namespace SocialGamePlatform.Web.Controllers
             return Ok(account);
         }
 
+        [Authorize]
         public IHttpActionResult Post()
         {
             if (!ModelState.IsValid)

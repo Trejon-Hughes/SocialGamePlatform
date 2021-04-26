@@ -33,10 +33,8 @@ namespace SocialGamePlatform.Data
         }
 
         [Required]
-        [RegularExpression(@"^\d+.?\d{0,2}$", ErrorMessage = "Invalid Target Price; Maximum Two Decimal Points.")]
-        [Range(0, 9999999999999999.99, ErrorMessage = "Invalid Target Price; Max 18 digits")]
         public decimal Price { get; set; }
-
+        [Required]
         public string Description { get; set; }
         //public List<Achievement> Achievements { get; set; } = new List<Achievement>();
         [Required]
