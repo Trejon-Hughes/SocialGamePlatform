@@ -102,14 +102,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
+    <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Post.cs" />
+    <Compile Include="Migrations\202104201504030_InitialCreate.cs" />
+    <Compile Include="Migrations\202104201504030_InitialCreate.Designer.cs">
+      <DependentUpon>202104201504030_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104221507286_initial.cs" />
+    <Compile Include="Migrations\202104221507286_initial.Designer.cs">
+      <DependentUpon>202104221507286_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Entities\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\Review.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104201504030_InitialCreate.resx">
+      <DependentUpon>202104201504030_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104221507286_initial.resx">
+      <DependentUpon>202104221507286_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
