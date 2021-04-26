@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PostCreate.cs" />
     <Compile Include="AccountModels\AccountDetail.cs" />
     <Compile Include="GameModels\GameCreate.cs" />
     <Compile Include="GameModels\GameDetail.cs" />
