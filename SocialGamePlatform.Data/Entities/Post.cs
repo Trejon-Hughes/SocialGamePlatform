@@ -15,7 +15,7 @@ namespace SocialGamePlatform.Data
         public int PostId { get; set; }
         [Required]
         public Guid PoserID { get; set; }
-        [ForeignKey(nameof(AccountId))]
+        [ForeignKey(nameof(Account))]
         public int AccountId { get; set; }
         public virtual Account Account { get; set; }
         [Required]
