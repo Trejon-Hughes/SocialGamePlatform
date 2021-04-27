@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SocialGamePlatform.Models</name>
+    </assembly>
+    <members>
+        <member name="T:SocialGamePlatform.Models.GameModels.GameCreate">
+            <summary>
+            This is your IdNumber you received earlier
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.GameModels.GameCreate.Name">
+            <summary>
+            This is your IdNumber you received earlier
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.GameModels.GameCreate.Price">
+            <summary>
+            This is your IdNumber you received earlier
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.GameModels.GameCreate.Description">
+            <summary>
+            This is your IdNumber you received earlier
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.GameModels.GameCreate.GenreTags">
+            <summary>
+            This is your IdNumber you received earlier
+            </summary>
+        </member>
+    </members>
+</doc>

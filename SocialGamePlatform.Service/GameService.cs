@@ -42,20 +42,22 @@ namespace SocialGamePlatform.Service
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var query =
                     ctx
                         .Games
-                        .Single(e => e.Name == name);
-                return
-                    new GameDetail
-                    {
-                        OwnerUserName = entity.OwnerUserName,
-                        Name = entity.Name,
-                        Description = entity.Description,
-                        Price = entity.Price,
-                        Rating = entity.Rating,
-                        GenreTags = entity.GenreTags
-                    };
+                        .Where(e => e.Name.ToLower() == name.ToLower())
+                        .Select(
+                            e =>
+                                new GameListItem
+                                {
+                                    GameId = e.GameId,
+                                    Name = e.Name,
+                                    Price = e.Price,
+                                    Rating = e.Rating,
+                                    GenreTags = e.GenreTags
+                                }
+                        );
+                return query.ToArray();
             }
         }
 
@@ -70,6 +72,7 @@ namespace SocialGamePlatform.Service
                             e =>
                                 new GameListItem
                                 {
+                                    GameId = e.GameId,
                                     Name = e.Name,
                                     Price = e.Price,
                                     Rating = e.Rating,
@@ -87,11 +90,12 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                         .Games
-                        .Where(e => e.GenreTags.Contains(genre))
+                        .Where(e => e.GenreTags.Contains(genre, StringComparer.OrdinalIgnoreCase))
                         .Select(
                             e =>
                                 new GameListItem
                                 {
+                                    GameId = e.GameId,
                                     Name = e.Name,
                                     Price = e.Price,
                                     Rating = e.Rating,
@@ -114,6 +118,7 @@ namespace SocialGamePlatform.Service
                             e =>
                                 new GameListItem
                                 {
+                                    GameId = e.GameId,
                                     Name = e.Name,
                                     Price = e.Price,
                                     Rating = e.Rating,
@@ -136,6 +141,7 @@ namespace SocialGamePlatform.Service
                             e =>
                                 new GameListItem
                                 {
+                                    GameId = e.GameId,
                                     Name = e.Name,
                                     Price = e.Price,
                                     Rating = e.Rating,
@@ -143,6 +149,39 @@ namespace SocialGamePlatform.Service
                                 }
                         );
                 return query.ToArray();
+            }
+        }
+
+        public bool UpdateGame(GameEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Games
+                        .Single(e => e.GameId == model.GameId && e.OwnerId == _userId);
+
+                entity.Name = model.Name;
+                entity.Description = model.Description;
+                entity.Price = model.Price;
+                entity.GenreTags = model.GenreTags;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteGame(int gameId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Games
+                        .Single(e => e.GameId == gameId && e.OwnerId == _userId);
+
+                ctx.Games.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
