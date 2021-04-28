@@ -99,5 +99,55 @@
             Genre tags for the game
             </summary>
         </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewCreate.GameId">
+            <summary>
+            Id of the game
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewCreate.Text">
+            <summary>
+            Text for the review
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewCreate.StoryRating">
+            <summary>
+            Rating for the story
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewCreate.GameplayRating">
+            <summary>
+            Rating for the gameplay
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewCreate.GraphicsRating">
+            <summary>
+            Rating for the graphics
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewEdit.ReviewId">
+            <summary>
+            ID for the review
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewEdit.Text">
+            <summary>
+            Text for the review
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewEdit.StoryRating">
+            <summary>
+            Rating for the story
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewEdit.GameplayRating">
+            <summary>
+            Rating for the gameplay
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewEdit.GraphicsRating">
+            <summary>
+            Rating for the graphics
+            </summary>
+        </member>
     </members>
 </doc>
