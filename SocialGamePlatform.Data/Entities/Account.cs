@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialGamePlatform.Data
 {
@@ -14,11 +12,13 @@ namespace SocialGamePlatform.Data
         [Required]
         public string UserName { get; set; }
         [Required]
+        [JsonIgnore]
         public Guid UserId { get; set; }
+        public List<string> Follows { get; set; } = new List<string>();
         public List<string> Library { get; set; } = new List<string>();
         public List<string> Achievements { get; set; } = new List<string>();
-        public virtual List<Post> Posts { get; set; } = new List<Post>();
-        public virtual List<Review> Reviews { get; set; } = new List<Review>();
+        public List<Post> Posts { get; set; } = new List<Post>();
+        public List<Review> Reviews { get; set; } = new List<Review>();
 
     }
 }

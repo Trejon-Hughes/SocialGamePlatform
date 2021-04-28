@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
-using SocialGamePlatform.Data;
 using SocialGamePlatform.Models.GameModels;
 using SocialGamePlatform.Service;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 
@@ -77,7 +73,7 @@ namespace SocialGamePlatform.Web.Controllers
             }
             else
             {
-                return BadRequest("Please Enter Genre or Name as selection");
+                return BadRequest("Please enter a valid value for selection");
             }
         }
 
@@ -110,7 +106,7 @@ namespace SocialGamePlatform.Web.Controllers
             }
             else
             {
-                return BadRequest("Please Enter Rating or Price as selection");
+                return BadRequest("Please enter a valid value for selection");
             }
 
         }

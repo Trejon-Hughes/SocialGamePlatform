@@ -4,6 +4,31 @@
         <name>SocialGamePlatform.Models</name>
     </assembly>
     <members>
+        <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.UserName">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.Library">
+            <summary>
+            User's Library
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.Achievements">
+            <summary>
+            User's Achievements
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.Posts">
+            <summary>
+            User's Posts
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.Reviews">
+            <summary>
+            User's Reviews
+            </summary>
+        </member>
         <member name="P:SocialGamePlatform.Models.GameModels.GameCreate.Name">
             <summary>
             Name of the game

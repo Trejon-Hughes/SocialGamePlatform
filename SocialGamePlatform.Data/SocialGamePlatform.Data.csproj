@@ -88,6 +88,7 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -113,6 +114,10 @@
     <Compile Include="Migrations\202104221507286_initial.Designer.cs">
       <DependentUpon>202104221507286_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104281405462_UpdateChecking.cs" />
+    <Compile Include="Migrations\202104281405462_UpdateChecking.Designer.cs">
+      <DependentUpon>202104281405462_UpdateChecking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -128,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104221507286_initial.resx">
       <DependentUpon>202104221507286_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281405462_UpdateChecking.resx">
+      <DependentUpon>202104281405462_UpdateChecking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
