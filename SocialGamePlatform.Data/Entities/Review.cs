@@ -26,12 +26,13 @@ namespace SocialGamePlatform.Data
         [JsonIgnore]
         public virtual Game Game { get; set; }
 
+        public string GameName { get; set; }
+
         [Required]
         public string ReviewerUserName { get; set; }
 
-        [Required]
         [MaxLength(8000)]
-        public string Text { get; set; }
+        public string Text { get; set; } = "";
 
         [Required]
         [Range(0, 10)]
@@ -50,7 +51,7 @@ namespace SocialGamePlatform.Data
             get
             {
                 var totalScore = StoryRating + GameplayRating + GraphicsRating;
-                return totalScore / 3;
+                return Math.Round((totalScore / 3), 2);
             }
         }
     }

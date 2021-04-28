@@ -541,6 +541,35 @@
             </summary>
             <param name="id">Id of the game to be deleted</param>
         </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.ReviewController.Post(SocialGamePlatform.Models.ReviewModels.ReviewCreate)">
+            <summary>
+            Adds a review
+            </summary>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.ReviewController.Get(System.String,System.String)">
+            <summary>
+            Searches reviews by game or username
+            </summary>
+            <param name="selection">Choose to search by game or username</param>
+            <param name="search">The string to search by</param>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.ReviewController.Get(System.Int32)">
+            <summary>
+            Searches for review by ID
+            </summary>
+            <param name="id">ID of the review</param>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.ReviewController.Put(SocialGamePlatform.Models.ReviewModels.ReviewEdit)">
+            <summary>
+            Allows an account to update a review they created
+            </summary>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.ReviewController.Delete(System.Int32)">
+            <summary>
+            Allows an account to delete a review they created
+            </summary>
+            <param name="id">Id of the review to be deleted</param>
+        </member>
         <member name="T:ElevenNote.WebAPI.AddAuthorizationHeaderParameterOperationFilter">
             <summary>
             Document filter for adding Authorization header in Swashbuckle / Swagger.
