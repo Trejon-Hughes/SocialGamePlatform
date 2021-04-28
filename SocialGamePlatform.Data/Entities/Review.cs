@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialGamePlatform.Data
 {
@@ -14,14 +11,19 @@ namespace SocialGamePlatform.Data
         public int ReviewId { get; set; }
 
         [Required]
+        [JsonIgnore]
         public Guid ReviewerId { get; set; }
 
         [ForeignKey(nameof(Account))]
+        [JsonIgnore]
         public int AccountId { get; set; }
+        [JsonIgnore]
         public virtual Account Account { get; set; }
 
         [ForeignKey(nameof(Game))]
+        [JsonIgnore]
         public int GameId { get; set; }
+        [JsonIgnore]
         public virtual Game Game { get; set; }
 
         [Required]

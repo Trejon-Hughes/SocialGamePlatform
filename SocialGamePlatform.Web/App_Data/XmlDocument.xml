@@ -481,6 +481,31 @@
             </summary>
             <param name="appDataPath">The physical path to XML document.</param>
         </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.GameAccountController.Get(System.String)">
+            <summary>
+            Get an account by username
+            </summary>
+            <param name="name">Account's username</param>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.GameAccountController.Post">
+            <summary>
+            Adds a new account associated with the creator
+            </summary>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.GameAccountController.Put(System.String,System.String)">
+            <summary>
+            Adds an achievement name, game, or user follow to the owner's account
+            </summary>
+            <param name="action">Name of the action to take. Achievement, Game, or Follow</param>
+            <param name="name">Name of the item to add</param>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.GameAccountController.Delete(System.String,System.String)">
+            <summary>
+            Removes an achievement, game, or follow from the owner's account by name
+            </summary>
+            <param name="name">Name of the object to remove, enter "all" to remove all</param>
+            <param name="action">Name of the action to take. Achievement, Game, or Follow</param>
+        </member>
         <member name="M:SocialGamePlatform.Web.Controllers.GameController.Post(SocialGamePlatform.Models.GameModels.GameCreate)">
             <summary>
             Adds a game
