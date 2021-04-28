@@ -481,6 +481,36 @@
             </summary>
             <param name="appDataPath">The physical path to XML document.</param>
         </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.AchievementController.Post(SocialGamePlatform.Models.AchievementModels.AchievementCreate)">
+            <summary>
+            Adds a review to a game
+            </summary>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.AchievementController.Get(System.String,System.String)">
+            <summary>
+            Searches achievements by achievement name or game
+            </summary>
+            <param name="selection"></param>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.AchievementController.Get(System.Int32)">
+            <summary>
+            Searches for achievement by ID
+            </summary>
+            <param name="id">ID of the achievement</param>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.AchievementController.Put(SocialGamePlatform.Models.AchievementModels.AchievementEdit)">
+            <summary>
+            Allows an account to update an achievement they created
+            </summary>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.AchievementController.Delete(System.Int32)">
+            <summary>
+            Allows an account to delete an achievement they created
+            </summary>
+            <param name="id">Id of the achievement to be deleted</param>
+        </member>
         <member name="M:SocialGamePlatform.Web.Controllers.GameAccountController.Get(System.String)">
             <summary>
             Get an account by username

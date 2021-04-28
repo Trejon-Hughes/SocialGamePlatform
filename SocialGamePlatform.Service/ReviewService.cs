@@ -1,6 +1,7 @@
 ﻿using SocialGamePlatform.Data;
 using SocialGamePlatform.Models.ReviewModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SocialGamePlatform.Service
@@ -39,7 +40,7 @@ namespace SocialGamePlatform.Service
             }
         }
 
-        public object GetReviewByGame(string game)
+        public IEnumerable<ReviewListItem> GetReviewByGame(string game)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -64,7 +65,7 @@ namespace SocialGamePlatform.Service
             }
         }
 
-        public object GetReviewByUsername(string userName)
+        public IEnumerable<ReviewListItem> GetReviewByUsername(string userName)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -89,7 +90,7 @@ namespace SocialGamePlatform.Service
             }
         }
 
-        public object GetReviewById(int id)
+        public IEnumerable<ReviewListItem> GetReviewById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

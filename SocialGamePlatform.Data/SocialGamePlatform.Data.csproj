@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\Achievement.cs" />
     <Compile Include="Entities\Game.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202104201504030_InitialCreate.cs" />

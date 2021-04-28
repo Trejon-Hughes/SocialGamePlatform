@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AchievementService.cs" />
     <Compile Include="PostServices.cs" />
     <Compile Include="AccountService.cs" />
     <Compile Include="GameService.cs" />
