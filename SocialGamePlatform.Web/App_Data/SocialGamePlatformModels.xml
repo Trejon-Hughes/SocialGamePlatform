@@ -4,6 +4,51 @@
         <name>SocialGamePlatform.Models</name>
     </assembly>
     <members>
+        <member name="P:SocialGamePlatform.Models.AchievementModels.AchievementCreate.GameId">
+            <summary>
+            Id for the game
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AchievementModels.AchievementCreate.Name">
+            <summary>
+            Name of the achievement
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AchievementModels.AchievementCreate.Description">
+            <summary>
+            Description of the achievement
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AchievementModels.AchievementEdit.AchievementId">
+            <summary>
+            Id for the achievement
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AchievementModels.AchievementEdit.Name">
+            <summary>
+            Name of the achievement
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AchievementModels.AchievementEdit.Description">
+            <summary>
+            Description of the achievement
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AchievementModels.AchievementListItem.GameName">
+            <summary>
+            Name of the game for the achievement
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AchievementModels.AchievementListItem.Name">
+            <summary>
+            Name of the achievement
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.AchievementModels.AchievementListItem.Description">
+            <summary>
+            Description of the achievement
+            </summary>
+        </member>
         <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.UserName">
             <summary>
             Username
@@ -122,6 +167,46 @@
         <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewCreate.GraphicsRating">
             <summary>
             Rating for the graphics
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewListItem.ReviewId">
+            <summary>
+            ID for the review
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewListItem.GameName">
+            <summary>
+            Name of the game being reviewed
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewListItem.ReviewerUserName">
+            <summary>
+            Username of the reviewer
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewListItem.Text">
+            <summary>
+            Text of the review
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewListItem.StoryRating">
+            <summary>
+            Rating for the story
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewListItem.GameplayRating">
+            <summary>
+            Rating for the gameplay
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewListItem.GraphicsRating">
+            <summary>
+            Rating for the graphics
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewListItem.AverageRating">
+            <summary>
+            Average rating of previous ratings
             </summary>
         </member>
         <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewEdit.ReviewId">

@@ -37,6 +37,7 @@ namespace SocialGamePlatform.Data
         public DbSet<Game> Games { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Achievement> Achievements { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

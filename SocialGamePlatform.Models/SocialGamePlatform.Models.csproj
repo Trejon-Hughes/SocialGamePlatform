@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AchievementModels\AchievementCreate.cs" />
+    <Compile Include="AchievementModels\AchievementEdit.cs" />
+    <Compile Include="AchievementModels\AchievementListItem.cs" />
     <Compile Include="PostCreate.cs" />
     <Compile Include="AccountModels\AccountDetail.cs" />
     <Compile Include="GameModels\GameCreate.cs" />
