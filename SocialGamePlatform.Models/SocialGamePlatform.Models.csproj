@@ -59,12 +59,14 @@
     <Compile Include="AchievementModels\AchievementCreate.cs" />
     <Compile Include="AchievementModels\AchievementEdit.cs" />
     <Compile Include="AchievementModels\AchievementListItem.cs" />
-    <Compile Include="PostCreate.cs" />
+    <Compile Include="PostModels\PostCreate.cs" />
     <Compile Include="AccountModels\AccountDetail.cs" />
     <Compile Include="GameModels\GameCreate.cs" />
     <Compile Include="GameModels\GameDetail.cs" />
     <Compile Include="GameModels\GameEdit.cs" />
     <Compile Include="GameModels\GameListItem.cs" />
+    <Compile Include="PostModels\PostEdit.cs" />
+    <Compile Include="PostModels\PostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewModels\ReviewCreate.cs" />
     <Compile Include="ReviewModels\ReviewListItem.cs" />
