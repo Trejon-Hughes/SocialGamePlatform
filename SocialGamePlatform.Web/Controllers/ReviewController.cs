@@ -15,9 +15,17 @@ namespace SocialGamePlatform.Web.Controllers
     {
         private ReviewService CreateReviewService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var reviewService = new ReviewService(userId);
-            return reviewService;
+            if (User.Identity.GetUserId() == null)
+            {
+                var reviewService = new ReviewService(default(Guid));
+                return reviewService;
+            }
+            else
+            {
+                var userId = Guid.Parse(User.Identity.GetUserId());
+                var reviewService = new ReviewService(userId);
+                return reviewService;
+            }
         }
 
         ///<summary>

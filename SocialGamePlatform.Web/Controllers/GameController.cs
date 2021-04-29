@@ -12,9 +12,17 @@ namespace SocialGamePlatform.Web.Controllers
     {
         private GameService CreateGameService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var gameService = new GameService(userId);
-            return gameService;
+            if (User.Identity.GetUserId() == null)
+            {
+                var gameService = new GameService(default(Guid));
+                return gameService;
+            }
+            else
+            {
+                var userId = Guid.Parse(User.Identity.GetUserId());
+                var gameService = new GameService(userId);
+                return gameService;
+            }
         }
 
         ///<summary>
@@ -33,6 +41,7 @@ namespace SocialGamePlatform.Web.Controllers
 
             return Ok();
         }
+
         /// <summary>
         /// Gets all available games
         /// </summary>
@@ -45,71 +54,97 @@ namespace SocialGamePlatform.Web.Controllers
         }
 
         /// <summary>
-        /// Searches games by genre or name
+        /// Searches games by name
         /// </summary>
-        /// <param name="selection">Choose to search by genre or name</param>
         /// <param name="search">The string to search by</param>
-        [ResponseType(typeof(IEnumerable<GameListItem>))]
-        public IHttpActionResult Get(string selection, string search)
+        [ResponseType(typeof(GameDetail))]
+        public IHttpActionResult Get(string search)
         {
             GameService gameService = CreateGameService();
-            if (selection.ToLower() == "genre")
-            {
                 var game = gameService.GetGameByName(search);
                 if (game != null)
                 {
                     return Ok(game);
                 }
                 return NotFound();
-            }
-            else if(selection.ToLower() == "name")
-            {
-                var game = gameService.GetGameByGenre(search);
-                if (game != null)
-                {
-                    return Ok(game);
-                }
-                return NotFound();
-            }
-            else
-            {
-                return BadRequest("Please enter a valid value for selection");
-            }
+            //else if(selection.ToLower() == "name")
+            //{
+            //    var game = gameService.GetGameByGenre(search);
+            //    if (game != null)
+            //    {
+            //        return Ok(game);
+            //    }
+            //    return NotFound();
+            //}
+            //else
+            //{
+            //    return BadRequest("Please enter a valid value for selection");
+            //}
         }
 
         /// <summary>
-        /// Searches games by price or rating
+        /// Get a game by ID
         /// </summary>
-        /// <param name="selection">Choose to search by price or rating</param>
-        /// <param name="value">The search value</param>
-        [ResponseType(typeof(IEnumerable<GameListItem>))]
-        public IHttpActionResult Get(string selection, double value)
+        /// <param name="id">ID of game to retrieve</param>
+        /// <returns></returns>
+        [ResponseType(typeof(GameDetail))]
+        public IHttpActionResult Get(int id)
         {
             GameService gameService = CreateGameService();
-            if (selection.ToLower() == "rating")
+            var game = gameService.GetGameById(id);
+            if (game != null)
             {
-                var game = gameService.GetGameByRating(value);
-                if (game != null)
-                {
-                    return Ok(game);
-                }
-                return NotFound();
+                return Ok(game);
             }
-            else if (selection.ToLower() == "price")
-            {
-                var game = gameService.GetGameByPrice(Convert.ToDecimal(value));
-                if (game != null)
-                {
-                    return Ok(game);
-                }
-                return NotFound();
-            }
-            else
-            {
-                return BadRequest("Please enter a valid value for selection");
-            }
-
+            return NotFound();
+            //else if(selection.ToLower() == "name")
+            //{
+            //    var game = gameService.GetGameByGenre(search);
+            //    if (game != null)
+            //    {
+            //        return Ok(game);
+            //    }
+            //    return NotFound();
+            //}
+            //else
+            //{
+            //    return BadRequest("Please enter a valid value for selection");
+            //}
         }
+
+        ///// <summary>
+        ///// Searches games by price or rating
+        ///// </summary>
+        ///// <param name="selection">Choose to search by price or rating</param>
+        ///// <param name="value">The search value</param>
+        //[ResponseType(typeof(IEnumerable<GameListItem>))]
+        //public IHttpActionResult Get(string selection, double value)
+        //{
+        //    GameService gameService = CreateGameService();
+        //    if (selection.ToLower() == "rating")
+        //    {
+        //        var game = gameService.GetGameByRating(value);
+        //        if (game != null)
+        //        {
+        //            return Ok(game);
+        //        }
+        //        return NotFound();
+        //    }
+        //    else if (selection.ToLower() == "price")
+        //    {
+        //        var game = gameService.GetGameByPrice(Convert.ToDecimal(value));
+        //        if (game != null)
+        //        {
+        //            return Ok(game);
+        //        }
+        //        return NotFound();
+        //    }
+        //    else
+        //    {
+        //        return BadRequest("Please enter a valid value for selection");
+        //    }
+
+        //}
 
         /// <summary>
         /// Allows an account to update a game they created

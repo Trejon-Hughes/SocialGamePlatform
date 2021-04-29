@@ -41,6 +41,7 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                         .Achievements
+                        .ToList()
                         .Where(e => e.Name.ToLower() == name.ToLower())
                         .Select(
                             e =>
@@ -62,6 +63,7 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                         .Achievements
+                        .ToList()
                         .Where(e => e.GameName.ToLower() == game.ToLower())
                         .Select(
                             e =>
@@ -83,6 +85,7 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                         .Achievements
+                        .ToList()
                         .Where(e => e.AchievementId == id)
                         .Select(
                             e =>
@@ -104,8 +107,12 @@ namespace SocialGamePlatform.Service
                 var entity =
                     ctx
                         .Achievements
-                        .Single(e => e.AchievementId == model.AchievementId && e.CreatorId == _userId);
+                        .SingleOrDefault(e => e.AchievementId == model.AchievementId && e.CreatorId == _userId);
 
+                if (entity == null)
+                {
+                    return false;
+                }
                 entity.Name = model.Name;
                 entity.Description = model.Description;
 
@@ -120,8 +127,12 @@ namespace SocialGamePlatform.Service
                 var entity =
                     ctx
                         .Achievements
-                        .Single(e => e.AchievementId == achievementId && e.CreatorId == _userId);
+                        .SingleOrDefault(e => e.AchievementId == achievementId && e.CreatorId == _userId);
 
+                if (entity == null)
+                {
+                    return false;
+                }
                 ctx.Achievements.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

@@ -15,9 +15,17 @@ namespace SocialGamePlatform.Web.Controllers
     {
         private AchievementService CreateAchievementService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var achievementService = new AchievementService(userId);
-            return achievementService;
+            if (User.Identity.GetUserId() == null)
+            {
+                var achievementService = new AchievementService(default(Guid));
+                return achievementService;
+            }
+            else
+            {
+                var userId = Guid.Parse(User.Identity.GetUserId());
+                var achievementService = new AchievementService(userId);
+                return achievementService;
+            }
         }
 
         /// <summary>

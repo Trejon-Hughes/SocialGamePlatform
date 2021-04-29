@@ -34,135 +34,141 @@ namespace SocialGamePlatform.Service
             }
         }
 
-        public object GetAccountById(string name)
+        public object GetAccountByUsername(string name)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Accounts
-                        .Single(e => e.UserName == name);
+                        .SingleOrDefault(e => e.UserName == name);
+
+                if(entity == null)
+                {
+                    return entity;
+                }
                 return 
                     new AccountDetail
                     {
+                        AccountId = entity.AccountId,
                         UserName = entity.UserName,
-                        Achievements = entity.Achievements,
-                        Library = entity.Library,
+                        //Achievements = entity.Achievements,
+                        //Library = entity.Library,
                         Posts = entity.Posts,
                         Reviews = entity.Reviews
                     };
             }
         }
 
-        public bool AddAchievement(string name)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Accounts
-                        .Single(e => e.UserId == _userId);
+        //public bool AddAchievement(string name)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Accounts
+        //                .Single(e => e.UserId == _userId);
 
-                entity.Achievements.Add(name);
+        //        entity.Achievements.Add(name);
 
-                return ctx.SaveChanges() == 1;
-            }
-        }
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
 
-        public bool AddFollow(string userName)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Accounts
-                        .Single(e => e.UserId == _userId);
+        //public bool AddFollow(string userName)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Accounts
+        //                .Single(e => e.UserId == _userId);
 
-                entity.Follows.Add(userName);
+        //        entity.Follows.Add(userName);
 
-                return ctx.SaveChanges() == 1;
-            }
-        }
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
 
-        public bool AddGame(string game)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Accounts
-                        .Single(e => e.UserId == _userId);
+        //public bool AddGame(string game)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Accounts
+        //                .Single(e => e.UserId == _userId);
 
-                entity.Library.Add(game);
+        //        entity.Library.Add(game);
 
-                return ctx.SaveChanges() == 1;
-            }
-        }
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
 
-        public bool RemoveAchievement(string name)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Accounts
-                        .Single(e => e.UserId == _userId);
+        //public bool RemoveAchievement(string name)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Accounts
+        //                .Single(e => e.UserId == _userId);
 
-                if (name.ToLower() == "all")
-                {
-                    entity.Achievements.Clear();
-                }
-                else
-                {
-                    entity.Achievements.RemoveAt(entity.Achievements.FindIndex(n => n.Equals("word", StringComparison.OrdinalIgnoreCase)));
-                }
+        //        if (name.ToLower() == "all")
+        //        {
+        //            entity.Achievements.Clear();
+        //        }
+        //        else
+        //        {
+        //            entity.Achievements.RemoveAt(entity.Achievements.FindIndex(n => n.Equals("word", StringComparison.OrdinalIgnoreCase)));
+        //        }
 
-                return ctx.SaveChanges() == 1;
-            }
-        }
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
 
-        public bool RemoveFollow(string game)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Accounts
-                        .Single(e => e.UserId == _userId);
+        //public bool RemoveFollow(string game)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Accounts
+        //                .Single(e => e.UserId == _userId);
 
-                if (game.ToLower() == "all")
-                {
-                    entity.Follows.Clear();
-                }
-                else
-                {
-                    entity.Follows.RemoveAt(entity.Follows.FindIndex(n => n.Equals("word", StringComparison.OrdinalIgnoreCase)));
-                }
+        //        if (game.ToLower() == "all")
+        //        {
+        //            entity.Follows.Clear();
+        //        }
+        //        else
+        //        {
+        //            entity.Follows.RemoveAt(entity.Follows.FindIndex(n => n.Equals("word", StringComparison.OrdinalIgnoreCase)));
+        //        }
 
-                return ctx.SaveChanges() == 1;
-            }
-        }
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
 
-        public bool RemoveGame(string userName)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Accounts
-                        .Single(e => e.UserId == _userId);
+        //public bool RemoveGame(string userName)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Accounts
+        //                .Single(e => e.UserId == _userId);
 
-                if (userName.ToLower() == "all")
-                {
-                    entity.Library.Clear();
-                }
-                else
-                {
-                    entity.Library.RemoveAt(entity.Library.FindIndex(n => n.Equals("word", StringComparison.OrdinalIgnoreCase)));
-                }
+        //        if (userName.ToLower() == "all")
+        //        {
+        //            entity.Library.Clear();
+        //        }
+        //        else
+        //        {
+        //            entity.Library.RemoveAt(entity.Library.FindIndex(n => n.Equals("word", StringComparison.OrdinalIgnoreCase)));
+        //        }
 
-                return ctx.SaveChanges() == 1;
-            }
-        }
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
     }
 }

@@ -119,6 +119,34 @@
     <Compile Include="Migrations\202104281405462_UpdateChecking.Designer.cs">
       <DependentUpon>202104281405462_UpdateChecking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104291402058_FinalCheck.cs" />
+    <Compile Include="Migrations\202104291402058_FinalCheck.Designer.cs">
+      <DependentUpon>202104291402058_FinalCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104291528067_PleaseBeTheLastMigration.cs" />
+    <Compile Include="Migrations\202104291528067_PleaseBeTheLastMigration.Designer.cs">
+      <DependentUpon>202104291528067_PleaseBeTheLastMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104291534211_ThereIsNoEndToTheMigrations.cs" />
+    <Compile Include="Migrations\202104291534211_ThereIsNoEndToTheMigrations.Designer.cs">
+      <DependentUpon>202104291534211_ThereIsNoEndToTheMigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104291536380_ThereIsNoEndToTheMigrations1.cs" />
+    <Compile Include="Migrations\202104291536380_ThereIsNoEndToTheMigrations1.Designer.cs">
+      <DependentUpon>202104291536380_ThereIsNoEndToTheMigrations1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104291541036_OhSoNowINeedToDoAMigration.cs" />
+    <Compile Include="Migrations\202104291541036_OhSoNowINeedToDoAMigration.Designer.cs">
+      <DependentUpon>202104291541036_OhSoNowINeedToDoAMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104291551561_OhSoNowINeedToDoAMigration1.cs" />
+    <Compile Include="Migrations\202104291551561_OhSoNowINeedToDoAMigration1.Designer.cs">
+      <DependentUpon>202104291551561_OhSoNowINeedToDoAMigration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104291620448_OhSoNowINeedToDoAMigration2.cs" />
+    <Compile Include="Migrations\202104291620448_OhSoNowINeedToDoAMigration2.Designer.cs">
+      <DependentUpon>202104291620448_OhSoNowINeedToDoAMigration2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,6 +165,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104281405462_UpdateChecking.resx">
       <DependentUpon>202104281405462_UpdateChecking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291402058_FinalCheck.resx">
+      <DependentUpon>202104291402058_FinalCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291528067_PleaseBeTheLastMigration.resx">
+      <DependentUpon>202104291528067_PleaseBeTheLastMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291534211_ThereIsNoEndToTheMigrations.resx">
+      <DependentUpon>202104291534211_ThereIsNoEndToTheMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291536380_ThereIsNoEndToTheMigrations1.resx">
+      <DependentUpon>202104291536380_ThereIsNoEndToTheMigrations1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291541036_OhSoNowINeedToDoAMigration.resx">
+      <DependentUpon>202104291541036_OhSoNowINeedToDoAMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291551561_OhSoNowINeedToDoAMigration1.resx">
+      <DependentUpon>202104291551561_OhSoNowINeedToDoAMigration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291620448_OhSoNowINeedToDoAMigration2.resx">
+      <DependentUpon>202104291620448_OhSoNowINeedToDoAMigration2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

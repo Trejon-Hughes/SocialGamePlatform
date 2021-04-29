@@ -59,19 +59,14 @@
             ID of the account being posted to
             </summary>
         </member>
+        <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.AccountId">
+            <summary>
+            ID of the account
+            </summary>
+        </member>
         <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.UserName">
             <summary>
             Username
-            </summary>
-        </member>
-        <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.Library">
-            <summary>
-            User's Library
-            </summary>
-        </member>
-        <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.Achievements">
-            <summary>
-            User's Achievements
             </summary>
         </member>
         <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.Posts">
@@ -124,11 +119,6 @@
             Description of the game
             </summary>
         </member>
-        <member name="P:SocialGamePlatform.Models.GameModels.GameEdit.GenreTags">
-            <summary>
-            Genre tags for the game
-            </summary>
-        </member>
         <member name="P:SocialGamePlatform.Models.GameModels.GameListItem.GameId">
             <summary>
             Game Id
@@ -147,11 +137,6 @@
         <member name="P:SocialGamePlatform.Models.GameModels.GameListItem.Price">
             <summary>
             Game price
-            </summary>
-        </member>
-        <member name="P:SocialGamePlatform.Models.GameModels.GameListItem.GenreTags">
-            <summary>
-            Genre tags for the game
             </summary>
         </member>
         <member name="P:SocialGamePlatform.Models.PostModels.PostEdit.Text">

@@ -19,8 +19,13 @@ namespace SocialGamePlatform.Service
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var account = ctx.Accounts.Single(e => e.UserId == _userId);
-                var game = ctx.Games.Single(e => e.GameId == model.GameId);
+                var account = ctx.Accounts.SingleOrDefault(e => e.UserId == _userId);
+                var game = ctx.Games.SingleOrDefault(e => e.GameId == model.GameId);
+
+                if(game == null)
+                {
+                    return false;
+                }
                 var entity =
                     new Review()
                     {
@@ -47,6 +52,7 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                         .Reviews
+                        .ToList()
                         .Where(e => e.GameName.ToLower() == game.ToLower())
                         .Select(
                             e =>
@@ -72,6 +78,7 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                         .Reviews
+                        .ToList()
                         .Where(e => e.ReviewerUserName.ToLower() == userName.ToLower())
                         .Select(
                             e =>
@@ -97,6 +104,7 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                         .Reviews
+                        .ToList()
                         .Where(e => e.ReviewId == id)
                         .Select(
                             e =>
@@ -122,8 +130,12 @@ namespace SocialGamePlatform.Service
                 var entity =
                     ctx
                         .Reviews
-                        .Single(e => e.ReviewId == model.ReviewId && e.ReviewerId == _userId);
+                        .SingleOrDefault(e => e.ReviewId == model.ReviewId && e.ReviewerId == _userId);
 
+                if (entity == null)
+                {
+                    return false;
+                }
                 entity.Text = model.Text;
                 entity.StoryRating = model.StoryRating;
                 entity.GameplayRating = model.GameplayRating;
@@ -140,8 +152,12 @@ namespace SocialGamePlatform.Service
                 var entity =
                     ctx
                         .Reviews
-                        .Single(e => e.ReviewId == reviewId && e.ReviewerId == _userId);
+                        .SingleOrDefault(e => e.ReviewId == reviewId && e.ReviewerId == _userId);
 
+                if (entity == null)
+                {
+                    return false;
+                }
                 ctx.Reviews.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

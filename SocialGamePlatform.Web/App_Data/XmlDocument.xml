@@ -522,20 +522,6 @@
             Adds a new account associated with the creator
             </summary>
         </member>
-        <member name="M:SocialGamePlatform.Web.Controllers.GameAccountController.Put(System.String,System.String)">
-            <summary>
-            Adds an achievement name, game, or user follow to the owner's account
-            </summary>
-            <param name="action">Name of the action to take. Achievement, Game, or Follow</param>
-            <param name="name">Name of the item to add</param>
-        </member>
-        <member name="M:SocialGamePlatform.Web.Controllers.GameAccountController.Delete(System.String,System.String)">
-            <summary>
-            Removes an achievement, game, or follow from the owner's account by name
-            </summary>
-            <param name="name">Name of the object to remove, enter "all" to remove all</param>
-            <param name="action">Name of the action to take. Achievement, Game, or Follow</param>
-        </member>
         <member name="M:SocialGamePlatform.Web.Controllers.GameController.Post(SocialGamePlatform.Models.GameModels.GameCreate)">
             <summary>
             Adds a game
@@ -546,19 +532,18 @@
             Gets all available games
             </summary>
         </member>
-        <member name="M:SocialGamePlatform.Web.Controllers.GameController.Get(System.String,System.String)">
+        <member name="M:SocialGamePlatform.Web.Controllers.GameController.Get(System.String)">
             <summary>
-            Searches games by genre or name
+            Searches games by name
             </summary>
-            <param name="selection">Choose to search by genre or name</param>
             <param name="search">The string to search by</param>
         </member>
-        <member name="M:SocialGamePlatform.Web.Controllers.GameController.Get(System.String,System.Double)">
+        <member name="M:SocialGamePlatform.Web.Controllers.GameController.Get(System.Int32)">
             <summary>
-            Searches games by price or rating
+            Get a game by ID
             </summary>
-            <param name="selection">Choose to search by price or rating</param>
-            <param name="value">The search value</param>
+            <param name="id">ID of game to retrieve</param>
+            <returns></returns>
         </member>
         <member name="M:SocialGamePlatform.Web.Controllers.GameController.Put(SocialGamePlatform.Models.GameModels.GameEdit)">
             <summary>

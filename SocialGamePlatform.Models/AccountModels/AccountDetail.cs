@@ -6,19 +6,24 @@ namespace SocialGamePlatform.Models.AccountModels
     public class AccountDetail
     {
         /// <summary>
+        /// ID of the account
+        /// </summary>
+        public int AccountId { get; set; }
+
+        /// <summary>
         /// Username
         /// </summary>
         public string UserName { get; set; }
 
-        /// <summary>
-        /// User's Library
-        /// </summary>
-        public List<string> Library { get; set; }
+        ///// <summary>
+        ///// User's Library
+        ///// </summary>
+        //public List<string> Library { get; set; }
 
-        /// <summary>
-        /// User's Achievements
-        /// </summary>
-        public List<string> Achievements { get; set; }
+        ///// <summary>
+        ///// User's Achievements
+        ///// </summary>
+        //public List<string> Achievements { get; set; }
 
         /// <summary>
         /// User's Posts

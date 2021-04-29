@@ -43,6 +43,7 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                     .Posts
+                    .ToList()
                     .Where(e => e.PosterUserName.ToLower() == userName.ToLower())
                     .Select(
                         e =>
@@ -64,6 +65,7 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                     .Posts
+                    .ToList()
                     .Where(e => e.PostId == id)
                     .Select(
                         e =>
@@ -85,7 +87,12 @@ namespace SocialGamePlatform.Service
                 var entity =
                     ctx
                     .Posts
-                    .Single(e => e.PostId == model.PostId && e.PosterID == _posterID);
+                    .SingleOrDefault(e => e.PostId == model.PostId && e.PosterID == _posterID);
+
+                if(entity == null)
+                {
+                    return false;
+                }
                 entity.Text = model.Text;
 
                 return ctx.SaveChanges() == 1;
@@ -98,7 +105,12 @@ namespace SocialGamePlatform.Service
                 var entity =
                     ctx
                     .Posts
-                    .Single(e => e.PostId == postId && e.PosterID == _posterID);
+                    .SingleOrDefault(e => e.PostId == postId && e.PosterID == _posterID);
+
+                if (entity == null)
+                {
+                    return false;
+                }
                 ctx.Posts.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

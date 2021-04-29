@@ -21,7 +21,7 @@ namespace SocialGamePlatform.Models.GameModels
         /// Price of the game, Max of 2 decimal places, Between 0 and 9999.99
         /// </summary>
         [Required]
-        [RegularExpression(@"^\d+.?\d{0,2}$", ErrorMessage = "Invalid Target Price; Maximum Two Decimal Points.")]
+        [RegularExpression(@"^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$", ErrorMessage = "Invalid Target Price; Maximum Two Decimal Points.")]
         [Range(0, 9999999999999999.99, ErrorMessage = "Invalid Target Price; Max 18 digits")]
         public decimal Price { get; set; }
 
@@ -31,10 +31,10 @@ namespace SocialGamePlatform.Models.GameModels
         [Required]
         public string Description { get; set; }
 
-        /// <summary>
-        /// Genre tags for the game
-        /// </summary>
-        [Required]
-        public List<string> GenreTags { get; set; }
+        ///// <summary>
+        ///// Genre tags for the game
+        ///// </summary>
+        //[Required]
+        //public List<string> GenreTags { get; set; }
     }
 }

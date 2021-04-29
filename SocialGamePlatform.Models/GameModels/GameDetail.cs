@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SocialGamePlatform.Data;
+using System.Collections.Generic;
 
 namespace SocialGamePlatform.Models.GameModels
 {
@@ -10,6 +11,8 @@ namespace SocialGamePlatform.Models.GameModels
         public double Rating { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
-        public List<string> GenreTags { get; set; }
+        public List<Achievement> Achievements { get; set; }
+        public List<Review> Reviews { get; set; }
+        //public List<string> GenreTags { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace SocialGamePlatform.Models.GameModels
         /// <summary>
         /// Game average rating
         /// </summary>
+
         public double Rating { get; set; }
 
         /// <summary>
@@ -24,9 +25,9 @@ namespace SocialGamePlatform.Models.GameModels
         /// </summary>
         public decimal Price { get; set; }
 
-        /// <summary>
-        /// Genre tags for the game
-        /// </summary>
-        public List<string> GenreTags { get; set; }
+        ///// <summary>
+        ///// Genre tags for the game
+        ///// </summary>
+        //public List<string> GenreTags { get; set; }
     }
 }

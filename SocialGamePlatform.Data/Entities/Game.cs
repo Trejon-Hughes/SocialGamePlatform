@@ -19,29 +19,29 @@ namespace SocialGamePlatform.Data
         [Required]
         public string Name { get; set; }
 
-        [JsonIgnore]
-        public List<Review> Reviews { get; set; } = new List<Review>();
+        public virtual List<Review> Reviews { get; set; } = new List<Review>();
 
-        public double Rating
+        public double Rating { get; set; } = 0;
+
+        public double GetRating()
         {
-            get
-            {
-                double totalAverageRating = 0;
+            double totalAverageRating = 0;
 
-                foreach (var rating in Reviews)
-                {
-                    totalAverageRating += rating.AverageRating;
-                }
-                return Reviews.Count > 0 ? Math.Round(totalAverageRating / Reviews.Count, 2) : 0;
+            foreach (var rating in Reviews)
+            {
+                totalAverageRating += rating.AverageRating;
             }
+            double averageRating = Reviews.Count > 0 ? Math.Round(totalAverageRating / Reviews.Count, 2) : 0;
+            Rating = averageRating;
+            return averageRating;
         }
 
         [Required]
         public decimal Price { get; set; }
         [Required]
         public string Description { get; set; }
-        //public List<Achievement> Achievements { get; set; } = new List<Achievement>();
-        [Required]
-        public List<string> GenreTags { get; set; }
+        public virtual List<Achievement> Achievements { get; set; } = new List<Achievement>();
+        //[Required]
+        //public virtual List<string> GenreTags { get; set; } = new List<string>();
     }
 }

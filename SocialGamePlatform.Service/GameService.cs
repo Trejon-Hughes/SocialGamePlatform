@@ -28,7 +28,7 @@ namespace SocialGamePlatform.Service
                     Name = model.Name,
                     Description = model.Description,
                     OwnerUserName = Thread.CurrentPrincipal.Identity.GetUserName(),
-                    GenreTags = model.GenreTags,
+                    //GenreTags = model.GenreTags,
                     Price = model.Price
                 };
             using (var ctx = new ApplicationDbContext())
@@ -45,16 +45,20 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                         .Games
+                        .ToList()
                         .Where(e => e.Name.ToLower() == name.ToLower())
                         .Select(
                             e =>
-                                new GameListItem
+                                new GameDetail
                                 {
                                     GameId = e.GameId,
                                     Name = e.Name,
-                                    Price = e.Price,
+                                    Price = decimal.Round(e.Price, 2, MidpointRounding.AwayFromZero),
                                     Rating = e.Rating,
-                                    GenreTags = e.GenreTags
+                                    Description = e.Description,
+                                    Achievements = e.Achievements,
+                                    Reviews = e.Reviews
+                                    //GenreTags = e.GenreTags
                                 }
                         );
                 return query.ToArray();
@@ -68,89 +72,121 @@ namespace SocialGamePlatform.Service
                 var query =
                     ctx
                         .Games
+                        .ToList()
                         .Select(
                             e =>
                                 new GameListItem
                                 {
                                     GameId = e.GameId,
                                     Name = e.Name,
-                                    Price = e.Price,
+                                    Price = decimal.Round(e.Price, 2, MidpointRounding.AwayFromZero),
                                     Rating = e.Rating,
-                                    GenreTags = e.GenreTags
+                                    //GenreTags = e.GenreTags
                                 }
-                        );
+                        ); ;
                 return query.ToArray();
             }
         }
-
-        public IEnumerable<GameListItem> GetGameByGenre(string genre)
+        public object GetGameById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                         .Games
-                        .Where(e => e.GenreTags.Contains(genre, StringComparer.OrdinalIgnoreCase))
+                        .ToList()
+                        .Where(e => e.GameId == id)
                         .Select(
                             e =>
-                                new GameListItem
+                                new GameDetail
                                 {
+                                    OwnerUserName = e.OwnerUserName,
                                     GameId = e.GameId,
                                     Name = e.Name,
-                                    Price = e.Price,
+                                    Price = decimal.Round(e.Price, 2, MidpointRounding.AwayFromZero),
                                     Rating = e.Rating,
-                                    GenreTags = e.GenreTags
+                                    Description = e.Description,
+                                    Achievements = e.Achievements,
+                                    Reviews = e.Reviews
+                                    //GenreTags = e.GenreTags
                                 }
                         );
                 return query.ToArray();
             }
         }
 
-        public IEnumerable<GameListItem> GetGameByRating(double rating)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                        .Games
-                        .Where(e => e.Rating == rating)
-                        .Select(
-                            e =>
-                                new GameListItem
-                                {
-                                    GameId = e.GameId,
-                                    Name = e.Name,
-                                    Price = e.Price,
-                                    Rating = e.Rating,
-                                    GenreTags = e.GenreTags
-                                }
-                        );
-                return query.ToArray();
-            }
-        }
 
-        public IEnumerable<GameListItem> GetGameByPrice(decimal price)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                        .Games
-                        .Where(e => e.Price == price)
-                        .Select(
-                            e =>
-                                new GameListItem
-                                {
-                                    GameId = e.GameId,
-                                    Name = e.Name,
-                                    Price = e.Price,
-                                    Rating = e.Rating,
-                                    GenreTags = e.GenreTags
-                                }
-                        );
-                return query.ToArray();
-            }
-        }
+        //public IEnumerable<GameListItem> GetGameByGenre(string genre)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //                .Games
+        //                .ToList()
+        //                .Where(e => e.GenreTags.Contains(genre, StringComparer.OrdinalIgnoreCase))
+        //                .Select(
+        //                    e =>
+        //                        new GameListItem
+        //                        {
+        //                            GameId = e.GameId,
+        //                            Name = e.Name,
+        //                            Price = decimal.Round(e.Price, 2, MidpointRounding.AwayFromZero),
+        //                            Rating = e.Rating,
+        //                            GenreTags = e.GenreTags
+        //                        }
+        //                );
+        //        return query.ToArray();
+        //    }
+        //}
+
+        //public IEnumerable<GameListItem> GetGameByRating(double rating)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //                .Games
+        //                .ToList()
+        //                .Where(e => e.Rating == rating)
+        //                .Select(
+        //                    e =>
+        //                        new GameListItem
+        //                        {
+        //                            GameId = e.GameId,
+        //                            Name = e.Name,
+        //                            Price = decimal.Round(e.Price, 2, MidpointRounding.AwayFromZero),
+        //                            Rating = e.Rating,
+        //                            //GenreTags = e.GenreTags
+        //                        }
+        //                );
+        //        return query.ToArray();
+        //    }
+        //}
+
+        //public IEnumerable<GameListItem> GetGameByPrice(decimal price)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //                .Games
+        //                .ToList()
+        //                .Where(e => e.Price == price)
+        //                .Select(
+        //                    e =>
+        //                        new GameListItem
+        //                        {
+        //                            GameId = e.GameId,
+        //                            Name = e.Name,
+        //                            Price = decimal.Round(e.Price, 2, MidpointRounding.AwayFromZero),
+        //                            Rating = e.Rating,
+        //                            //GenreTags = e.GenreTags
+        //                        }
+        //                );
+        //        return query.ToArray();
+        //    }
+        //}
 
         public bool UpdateGame(GameEdit model)
         {
@@ -159,12 +195,16 @@ namespace SocialGamePlatform.Service
                 var entity =
                     ctx
                         .Games
-                        .Single(e => e.GameId == model.GameId && e.OwnerId == _userId);
+                        .SingleOrDefault(e => e.GameId == model.GameId && e.OwnerId == _userId);
 
+                if (entity == null)
+                {
+                    return false;
+                }
                 entity.Name = model.Name;
                 entity.Description = model.Description;
-                entity.Price = model.Price;
-                entity.GenreTags = model.GenreTags;
+                entity.Price = decimal.Round(model.Price, 2, MidpointRounding.AwayFromZero);
+                //entity.GenreTags = model.GenreTags;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -177,10 +217,27 @@ namespace SocialGamePlatform.Service
                 var entity =
                     ctx
                         .Games
-                        .Single(e => e.GameId == gameId && e.OwnerId == _userId);
+                        .SingleOrDefault(e => e.GameId == gameId && e.OwnerId == _userId);
 
+                if (entity == null)
+                {
+                    return false;
+                }
                 ctx.Games.Remove(entity);
 
+                var reviewEntities = ctx.Reviews.Where(e => e.GameId == gameId);
+
+                foreach (var review in reviewEntities)
+                {
+                    ctx.Reviews.Remove(review);
+                }
+
+                var achievementEntities = ctx.Achievements.Where(e => e.GameId == gameId);
+
+                foreach (var achievement in achievementEntities)
+                {
+                    ctx.Achievements.Remove(achievement);
+                }
                 return ctx.SaveChanges() == 1;
             }
         }

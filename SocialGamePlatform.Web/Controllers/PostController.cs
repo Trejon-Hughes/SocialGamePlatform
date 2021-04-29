@@ -16,9 +16,17 @@ namespace SocialGamePlatform.Web.Controllers
     {
         private PostServices CreatePostService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var postService = new PostServices(userId);
-            return postService;
+            if(User.Identity.GetUserId() == null)
+            {
+                var postService = new PostServices(default(Guid));
+                return postService;
+            }
+            else
+            {
+                var userId = Guid.Parse(User.Identity.GetUserId());
+                var postService = new PostServices(userId);
+                return postService;
+            }
         }
 
         /// <summary>
