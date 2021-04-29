@@ -490,8 +490,8 @@
             <summary>
             Searches achievements by achievement name or game
             </summary>
-            <param name="selection"></param>
-            <param name="search"></param>
+            <param name="selection">Choose to search by game or achievement name</param>
+            <param name="search">The string to search by</param>
             <returns></returns>
         </member>
         <member name="M:SocialGamePlatform.Web.Controllers.AchievementController.Get(System.Int32)">
@@ -570,6 +570,34 @@
             Allows an account to delete a game they created
             </summary>
             <param name="id">Id of the game to be deleted</param>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.PostController.Post(SocialGamePlatform.Models.PostCreate)">
+            <summary>
+            Adds a post to an account
+            </summary>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.PostController.Get(System.String)">
+            <summary>
+            Searches for posts by creator username
+            </summary>
+            <param name="userName">Username of the poster</param>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.PostController.Get(System.Int32)">
+            <summary>
+            Searches for post by ID
+            </summary>
+            <param name="id">ID of the post</param>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.PostController.Put(SocialGamePlatform.Models.PostModels.PostEdit)">
+            <summary>
+            Allows an account to update a post they created
+            </summary>
+        </member>
+        <member name="M:SocialGamePlatform.Web.Controllers.PostController.Delete(System.Int32)">
+            <summary>
+            Allows an account to delete a post they created
+            </summary>
+            <param name="id">Id of the post to be deleted</param>
         </member>
         <member name="M:SocialGamePlatform.Web.Controllers.ReviewController.Post(SocialGamePlatform.Models.ReviewModels.ReviewCreate)">
             <summary>

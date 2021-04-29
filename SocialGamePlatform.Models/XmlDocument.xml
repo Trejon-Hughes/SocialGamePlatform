@@ -49,6 +49,16 @@
             Description of the achievement
             </summary>
         </member>
+        <member name="P:SocialGamePlatform.Models.PostCreate.Text">
+            <summary>
+            Post Text
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.PostCreate.AccountId">
+            <summary>
+            ID of the account being posted to
+            </summary>
+        </member>
         <member name="P:SocialGamePlatform.Models.AccountModels.AccountDetail.UserName">
             <summary>
             Username
@@ -142,6 +152,36 @@
         <member name="P:SocialGamePlatform.Models.GameModels.GameListItem.GenreTags">
             <summary>
             Genre tags for the game
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.PostModels.PostEdit.Text">
+            <summary>
+            Text for the post
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.PostModels.PostEdit.PostId">
+            <summary>
+            ID of the post
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.PostModels.PostListItem.PostId">
+            <summary>
+            ID of the post
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.PostModels.PostListItem.AccountId">
+            <summary>
+            ID of the account posted to
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.PostModels.PostListItem.PosterUserName">
+            <summary>
+            Username of the poster
+            </summary>
+        </member>
+        <member name="P:SocialGamePlatform.Models.PostModels.PostListItem.Text">
+            <summary>
+            Post text
             </summary>
         </member>
         <member name="P:SocialGamePlatform.Models.ReviewModels.ReviewCreate.GameId">

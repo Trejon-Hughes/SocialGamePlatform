@@ -11,9 +11,6 @@ namespace SocialGamePlatform.Data
         public int PostId { get; set; }
 
         [Required]
-        public string PostName { get; set; }
-
-        [Required]
         [JsonIgnore]
         public Guid PosterID { get; set; }
 

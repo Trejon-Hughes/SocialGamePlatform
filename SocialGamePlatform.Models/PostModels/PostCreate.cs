@@ -9,17 +9,18 @@ namespace SocialGamePlatform.Models
 {
     public class PostCreate
     {
+        /// <summary>
+        /// Post Text
+        /// </summary>
         [Required]
-        [MinLength(1, ErrorMessage = "Please enter at least 1 character.")]
-        [MaxLength(400, ErrorMessage = "There are too many characters in this field.")]
-        public string PostName { get; set; }
-        [Required]
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        [MaxLength(10000, ErrorMessage = "There are too many characters in this field.")]
+        [MinLength(3, ErrorMessage = "Please enter at least 2 characters.")]
+        [MaxLength(240, ErrorMessage = "There are too many characters in this field.")]
         public string Text { get; set; }
+
+        /// <summary>
+        /// ID of the account being posted to
+        /// </summary>
         [Required]
-        public int PostId { get; set; }
-        [Required]
-        public Guid PosterID { get; set; }
+        public int AccountId { get; set; }
     }
 }

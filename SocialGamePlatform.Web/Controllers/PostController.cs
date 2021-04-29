@@ -51,7 +51,7 @@ namespace SocialGamePlatform.Web.Controllers
         {
             PostServices postService = CreatePostService();
 
-            var post = postService.GetPostByUserName(userName);
+            var post = postService.GetPostByUsername(userName);
             if (post != null)
             {
                 return Ok(post);

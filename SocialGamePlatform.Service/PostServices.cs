@@ -1,10 +1,12 @@
-﻿using SocialGamePlatform.Data;
+﻿using Microsoft.AspNet.Identity;
+using SocialGamePlatform.Data;
 using SocialGamePlatform.Models;
 using SocialGamePlatform.Models.PostModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SocialGamePlatform.Service
@@ -12,15 +14,20 @@ namespace SocialGamePlatform.Service
     public class PostServices
     {
         private readonly Guid _posterID;
+
+        public PostServices(Guid userId)
+        {
+            _posterID = userId;
+        }
         public bool CreatePost(PostCreate model)
         {
             var entity =
                 new Post()
                 {
                     PosterID = _posterID,
-                    PostName = model.PostName,
+                    AccountId = model.AccountId,
                     Text = model.Text,
-                    PostId = model.PostId
+                    PosterUserName = Thread.CurrentPrincipal.Identity.GetUserName()
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -29,20 +36,20 @@ namespace SocialGamePlatform.Service
 
             }
         }
-        public IEnumerable<PostListItem> GetPostByName(string post)
+        public IEnumerable<PostListItem> GetPostByUsername(string userName)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .Posts
-                    .Where(e => e.PostName.ToLower() == post.ToLower())
+                    .Where(e => e.PosterUserName.ToLower() == userName.ToLower())
                     .Select(
                         e =>
                             new PostListItem
                             {
-                                PostName = e.PostName,
                                 PostId = e.PostId,
+                                AccountId = e.AccountId,
                                 PosterUserName = e.PosterUserName,
                                 Text = e.Text
                             }
@@ -62,8 +69,8 @@ namespace SocialGamePlatform.Service
                         e =>
                             new PostListItem
                             {
-                                PostName = e.PostName,
                                 PostId = e.PostId,
+                                AccountId = e.AccountId,
                                 PosterUserName = e.PosterUserName,
                                 Text = e.Text
                             }
@@ -79,7 +86,6 @@ namespace SocialGamePlatform.Service
                     ctx
                     .Posts
                     .Single(e => e.PostId == model.PostId && e.PosterID == _posterID);
-                entity.PostName = model.PostName;
                 entity.Text = model.Text;
 
                 return ctx.SaveChanges() == 1;
